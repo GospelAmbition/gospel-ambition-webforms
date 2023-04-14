@@ -35,7 +35,7 @@ class GO_Webform_Context_Switcher {
         require_once( 'globals/loader.php' );
         require_once( 'globals/site-link-post-type.php' );
 
-        require_once( 'assets/stats-pages.php' );
+//        require_once( 'assets/enqueue.php' );
 
         switch ( $site ) {
 
