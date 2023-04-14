@@ -11,6 +11,10 @@ add_filter( 'go_site_info', function( $stats ) {
 add_filter( 'go_webform_options', function ( $params ) {
     $params['lists'] = $params['lists'] ?? [];
     $params['lists'][] = 'list_18';
+    $params['contact_fields'] = $params['contact_fields'] ?? [];
+    $params['contact_fields']['projects'] = [ 'values' => [ [ 'value' => 'disciple_tools' ] ] ];
+    $params['contact_fields']['sources'] = [ 'values' => [ [ 'value' => 'disciple_tools' ] ] ];
+    $params['contact_fields']['notes'] = [ 'Signed up for D.T News' ];
 
     return $params;
 }, 10, 1 );

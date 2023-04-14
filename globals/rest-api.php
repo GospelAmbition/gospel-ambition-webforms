@@ -50,7 +50,8 @@ class GO_Webforms_Endpoints
         $subscribe = wp_remote_post(  'https://' . $var['url'] . '/wp-json/crm-email/create', [
             'body' => [
                 'email' => $params['email'],
-                'lists' => $params['lists']
+                'lists' => $params['lists'],
+                'contact_fields' => $params['contact_fields'] ?? [],
             ],
             'headers' => [
                 'Authorization' => 'Bearer ' . $var['transfer_token'],
