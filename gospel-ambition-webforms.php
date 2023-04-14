@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: Gospel Ambition - Webform
- * Plugin URI: https://github.com/GospelAmbition/gospel-ambition-stats-endpoint
- * Description: Gospel Ambition Stats Endpoint
- * Text Domain: gospel-ambition-stats-endpoint
+ * Plugin URI: https://github.com/GospelAmbition/gospel-ambition-webforms
+ * Description: Gospel Ambition Webforms
+ * Text Domain: gospel-ambition-webforms
  * Domain Path: /languages
- * Version:  2023.03.07
- * Author URI: https://github.com/GospelAmbition/gospel-ambition-stats-endpoint
- * GitHub Plugin URI: https://github.com/GospelAmbition/gospel-ambition-stats-endpoint
+ * Version:  2023.04.14
+ * Author URI: https://github.com/GospelAmbition/gospel-ambition-webforms
+ * GitHub Plugin URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
  * Tested up to: 6.3

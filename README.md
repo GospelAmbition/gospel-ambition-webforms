@@ -1,11 +1,10 @@
-![Build Status](https://github.com/GospelAmbition/gospel-ambition-stats-endpoints/actions/workflows/ci.yml/badge.svg?branch=master)
+![Build Status](https://github.com/GospelAmbition/gospel-ambition-webforms/actions/workflows/ci.yml/badge.svg?branch=master)
 
 
-Webforms. This plugin adds a few endpoints to your WordPress site that can be used to get stats about your site. This plugin is intended to be used with the [Gospel Ambition Stats](
-
-![Plugin Banner](https://github.com/GospelAmbition/gospel-ambition-stats-endpoints/raw/master/documentation/ga-circle-bw.png)
+Webforms.
 
 
-```angular2html
-{site}/wp-json/go/v1/stats
+Display list sign up form:
+```
+[go_display_opt_in]
 ```
