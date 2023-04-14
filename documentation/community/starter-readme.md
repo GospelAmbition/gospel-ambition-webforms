@@ -1,4 +1,4 @@
-![Build Status](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/actions/workflows/ci.yml/badge.svg?branch=master)
+![Build Status](https://github.com/GospelAmbition/gospel-ambition-webforms/actions/workflows/ci.yml/badge.svg?branch=master)
 
 # Disciple.Tools - Plugin Starter Template
 
@@ -51,11 +51,11 @@ __This plugin is for developers__ who want to extend the Disciple.Tools system f
 ## Contribution
 
 Contributions welcome. You can report issues and bugs in the
-[Issues](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/issues) section of the repo. You can present ideas
-in the [Discussions](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/discussions) section of the repo. And
-code contributions are welcome using the [Pull Request](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/pulls)
+[Issues](https://github.com/GospelAmbition/gospel-ambition-webforms/issues) section of the repo. You can present ideas
+in the [Discussions](https://github.com/GospelAmbition/gospel-ambition-webforms/discussions) section of the repo. And
+code contributions are welcome using the [Pull Request](https://github.com/GospelAmbition/gospel-ambition-webforms/pulls)
 system for git. For a more details on contribution see the
-[contribution guidelines](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/blob/master/CONTRIBUTING.md).
+[contribution guidelines](https://github.com/GospelAmbition/gospel-ambition-webforms/blob/master/CONTRIBUTING.md).
 
 ## Screenshots
 
