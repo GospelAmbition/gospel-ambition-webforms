@@ -24,7 +24,10 @@ function go_display_opt_in( $atts ){
                 <input type="email" name="email2" placeholder="Email Address" class="input-group-field">
                 <input type="email" name="email" placeholder="Email Address" class="input-group-field" style="display: none">
                 <div class="input-group-button">
-                    <button type="submit" class="button">Subscribe</button>
+                    <button id='go-submit-form-button' type="submit" class="button">
+                        Subscribe
+                        <img id="go-submit-spinner" style="display: none; height: 25px" src="<?php echo esc_html( GO_Webform_Context_Switcher::plugin_url( '/assets/spinner-white.svg' ) ) ?>"/>
+                    </button>
                 </div>
             </div>
             <div class="dt-form-success"></div>
@@ -36,10 +39,10 @@ function go_display_opt_in( $atts ){
         let error_span = go_form.querySelector('.dt-form-error');
         go_form.addEventListener('submit', function(e){
             e.preventDefault();
+            go_form.querySelector('#go-submit-spinner').style.display = 'inline-block';
+            go_form.querySelector('#go-submit-form-button').disabled = true;
             let email = go_form.querySelector('input[name="email"]').value;
             let email2 = go_form.querySelector('input[name="email2"]').value;
-            console.log(email);
-            console.log(email2);
             if ( email ){
                 return
             }
@@ -49,14 +52,18 @@ function go_display_opt_in( $atts ){
                 method: 'POST',
                 body: data
             }).then(function(response){
+                go_form.querySelector('#go-submit-spinner').style.display = 'none';
+                go_form.querySelector('#go-submit-form-button').disabled = false;
                 if ( response.status !== 200 ){
                     error_span.innerHTML = 'There was an error subscribing you. Please try again.';
                     error_span.style.display = 'block';
                 } else {
                     error_span.style.display = 'none';
                     go_form.querySelector('.dt-form-success').innerHTML = 'You have been subscribed!';
+                    go_form.querySelector('input[name="email2"]').value = '';
                 }
             }).catch(function(error){
+                go_form.querySelector('#go-submit-spinner').style.display = 'none';
                 error_span.innerHTML = 'There was an error subscribing you. Please try again.';
                 error_span.style.display = 'block';
             })

@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Gospel Ambition - Webform
+ * Plugin Name: Gospel Ambition - Webforms
  * Plugin URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * Description: Gospel Ambition Webforms
  * Text Domain: gospel-ambition-webforms
  * Domain Path: /languages
- * Version:  2023.04.14
+ * Version:  2023.04.14.1
  * Author URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * GitHub Plugin URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * Requires at least: 4.7.0
