@@ -47,7 +47,7 @@ class GO_Webforms_Endpoints
 
         $var = Site_Link_System::get_site_connection_vars( $crm_link['post_id'] );
 
-        $subscribe = wp_remote_post(  'http://' . $var['url'] . '/wp-json/crm-email/create', [
+        $subscribe = wp_remote_post(  'https://' . $var['url'] . '/wp-json/crm-email/create', [
             'body' => [
                 'email' => $params['email'],
                 'lists' => $params['lists']
@@ -56,9 +56,15 @@ class GO_Webforms_Endpoints
                 'Authorization' => 'Bearer ' . $var['transfer_token'],
             ],
         ] );
+
         if ( is_wp_error( $subscribe ) ) {
             return new WP_Error( 'subscribe_error', 'Something went wrong, please try again.', [ 'status' => 400 ] );
         }
+        $response = json_decode( wp_remote_retrieve_body( $subscribe ) );
+        if ( !empty( $response->error ) ) {
+            return new WP_Error( 'subscribe_error', 'Something went wrong, please try again.', [ 'status' => 400 ] );
+        }
+
         return new WP_REST_Response( 'success', 200 );
     }
 
