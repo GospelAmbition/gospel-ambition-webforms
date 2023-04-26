@@ -24,7 +24,7 @@ add_action( 'dt_webform_field', function ( $key ){
     }
 
     //kk
-    if ( $key === "kk-partner-news" ){
+    if ( $key === 'kk-partner-news' ){
         $values = [
             'K-family news and testimonies' => 'K-family news and testimonies',
             'Gospel Ambition news and testimonies' => 'Gospel Ambition news and testimonies',
