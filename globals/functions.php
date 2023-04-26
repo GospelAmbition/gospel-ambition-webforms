@@ -54,12 +54,13 @@ if ( !function_exists( 'dt_is_rest' ) ) {
 function go_display_tag_fields( $field_key, $values ){
     ?>
     <div id="section-<?php echo esc_html( $field_key ); ?>" class="section section-multi_select">
-        <fieldset>
+        <fieldset style="display: inline-block">
             <?php foreach ( $values as $key => $value ) : ?>
-                <label>
-                    <input type="checkbox" name="<?php echo esc_html( $field_key ); ?>" value="<?php echo esc_attr( $key ); ?>">
+                <input id="<?php echo esc_html( $field_key . '_' . $key ); ?>" type="checkbox" class="input-checkbox" name="<?php echo esc_html( $field_key ); ?>" value="<?php echo esc_attr( $key ); ?>">
+                <label for="<?php echo esc_html( $field_key . '_' . $key ); ?>" class="label-checkbox">
                     <?php echo esc_html( $value ); ?>
                 </label>
+            <br>
             <?php endforeach; ?>
         </fieldset>
     </div>
