@@ -49,3 +49,19 @@ if ( !function_exists( 'dt_is_rest' ) ) {
         }
     }
 }
+
+
+function go_display_tag_fields( $field_key, $values ){
+    ?>
+    <div id="section-<?php echo esc_html( $field_key ); ?>" class="section section-multi_select">
+        <fieldset>
+            <?php foreach ( $values as $key => $value ) : ?>
+                <label>
+                    <input type="checkbox" name="<?php echo esc_html( $field_key ); ?>" value="<?php echo esc_attr( $key ); ?>">
+                    <?php echo esc_html( $value ); ?>
+                </label>
+            <?php endforeach; ?>
+        </fieldset>
+    </div>
+    <?php
+}
