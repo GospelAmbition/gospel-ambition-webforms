@@ -51,6 +51,8 @@ class GO_Webforms_Endpoints
             'body' => [
                 'email' => $params['email'],
                 'lists' => $params['lists'],
+                'first_name' => $params['first_name'] ?? '',
+                'last_name' => $params['last_name'] ?? '',
                 'contact_fields' => $params['contact_fields'] ?? [],
             ],
             'headers' => [
