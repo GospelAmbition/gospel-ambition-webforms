@@ -18,7 +18,11 @@ add_filter( 'go_webform_options', function ( $params ) {
     } else {
         $params['contact_fields']['sources'] = [ 'values' => [ [ 'value' => 'disciple_tools' ] ] ];
     }
-    $params['contact_fields']['notes'] = [ 'Signed up for D.T News' ];
+
+    if ( in_array( 'list_18', $params['lists'] ) ) {
+        $params['contact_fields']['steps_taken'] = [ 'values' => [ [ 'value' => 'D.T Newsletter' ] ] ];
+        $params['contact_fields']['notes'] = [ 'Signed up for D.T News' ];
+    }
 
     return $params;
 }, 10, 1 );
