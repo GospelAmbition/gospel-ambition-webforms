@@ -21,7 +21,11 @@ add_filter( 'go_webform_options', function ( $params ) {
     }
     if ( in_array( 'list_23', $params['lists'] ) ) {
         $params['contact_fields']['steps_taken'] = [ 'values' => [ [ 'value' => 'P4M Newsletter' ] ] ];
-        $params['contact_fields']['notes'] = [ 'Signed up for P4M News' ];
+        $note = 'Signed up for P4M News';
+        if ( isset( $params['named_tags']['values'][0]['type'] ) && 'P4M Newsletter' === $params['named_tags']['values'][0]['type'] ) {
+            $note .= ' on ' . $params['named_tags']['values'][0]['value'];
+        }
+        $params['contact_fields']['notes'] = [ $note ];
     }
 
     return $params;
