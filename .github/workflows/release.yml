@@ -18,12 +18,11 @@ jobs:
 
       # - name: Run test suite
       #   run: composer run-script test
-      # cp -r gospel-ambition-webforms.php includes languages spinner.svg version-control.json LICENSE SECURITY.md gospel-ambition-webforms/
       # Below borrowed from https://github.com/actions/upload-release-asset
       - name: Build project
         run: |
           mkdir gospel-ambition-webforms
-          cp -r gospel-ambition-webforms.php disciple_tools globals kingdom_training pray4movement prayer_global zume_vision version-control.json gospel-ambition-webforms/
+          cp -r gospel-ambition-webforms.php assets disciple_tools globals kingdom_training pray4movement prayer_global zume_vision version-control.json gospel-ambition-webforms/
           zip -r gospel-ambition-webforms.zip gospel-ambition-webforms
       - name: Create Release
         id: create_release
