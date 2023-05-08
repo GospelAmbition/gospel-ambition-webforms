@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * Description: Gospel Ambition Webforms
  * Text Domain: gospel-ambition-webforms
- * Version:  2023.05.08.2
+ * Version:  2023.05.08.3
  * Author URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * GitHub Plugin URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * Requires at least: 4.7.0
