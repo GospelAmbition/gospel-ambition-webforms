@@ -20,6 +20,16 @@ function go_display_opt_in( $atts ){
     </style>
     <div class="go-opt-in__form">
         <form id="go-optin-form" action="/wp-json/go-webform/optin" method="post">
+            <label>
+               <strong>Name (optional)</strong>
+            </label>
+            <div class="input-group">
+                <input type="text" name="first_name" placeholder="First" class="input-group-field">
+                <input type="text" name="last_name" placeholder="Last" class="input-group-field">
+            </div>
+            <label>
+                <strong>Email Address</strong>
+            </label>
             <div class="input-group">
                 <input type="email" name="email2" placeholder="Email Address" class="input-group-field">
                 <input type="email" name="email" placeholder="Email Address" class="input-group-field" style="display: none">
@@ -46,11 +56,18 @@ function go_display_opt_in( $atts ){
             if ( email ){
                 return
             }
-            let data = new FormData();
-            data.append('email', email2);
+            let data = {
+              email: email2,
+              first_name: go_form.querySelector('input[name="first_name"]').value,
+              last_name: go_form.querySelector('input[name="last_name"]').value,
+            }
+
             fetch('/wp-json/go-webform/optin', {
                 method: 'POST',
-                body: data
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }).then(function(response){
                 go_form.querySelector('#go-submit-spinner').style.display = 'none';
                 go_form.querySelector('#go-submit-form-button').disabled = false;
