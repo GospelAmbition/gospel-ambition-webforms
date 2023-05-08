@@ -51,9 +51,13 @@ class GO_Webforms_Endpoints
             'body' => [
                 'email' => $params['email'],
                 'lists' => $params['lists'],
+                'name' => $params['name'] ?? '',
                 'first_name' => $params['first_name'] ?? '',
                 'last_name' => $params['last_name'] ?? '',
                 'contact_fields' => $params['contact_fields'] ?? [],
+                'source' => $params['source'] ?? '',
+                'tags' => $params['tags'] ?? [],
+                'named_tags' => $params['named_tags'] ?? [],
             ],
             'headers' => [
                 'Authorization' => 'Bearer ' . $var['transfer_token'],

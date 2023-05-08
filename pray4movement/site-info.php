@@ -7,3 +7,22 @@ add_filter( 'go_site_info', function( $stats ) {
 
     return $stats;
 }, 10, 1 );
+
+
+add_filter( 'go_webform_options', function ( $params ) {
+    $params['lists'] = $params['lists'] ?? [];
+    $params['contact_fields'] = $params['contact_fields'] ?? [];
+    $params['contact_fields']['projects'] = [ 'values' => [ [ 'value' => 'pray4movement' ] ] ];
+
+    if ( !empty( $params['source'] ) ){
+        $params['contact_fields']['sources'] = [ 'values' => [ [ 'value' => $params['source'] ] ] ];
+    } else {
+        $params['contact_fields']['sources'] = [ 'values' => [ [ 'value' => 'pray4movement' ] ] ];
+    }
+    if ( in_array( 'list_23', $params['lists'] ) ) {
+        $params['contact_fields']['steps_taken'] = [ 'values' => [ [ 'value' => 'P4M Newsletter' ] ] ];
+        $params['contact_fields']['notes'] = [ 'Signed up for P4M News' ];
+    }
+
+    return $params;
+}, 10, 1 );
