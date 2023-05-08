@@ -4,6 +4,8 @@
 
 function go_display_opt_in( $atts ){
 
+    $source = $atts['source'] ?? null;
+
     ob_start();
     ?>
     <style>
@@ -60,6 +62,7 @@ function go_display_opt_in( $atts ){
               email: email2,
               first_name: go_form.querySelector('input[name="first_name"]').value,
               last_name: go_form.querySelector('input[name="last_name"]').value,
+              source: '<?php echo $source ?>'
             }
 
             fetch('/wp-json/go-webform/optin', {
