@@ -17,7 +17,7 @@ add_action( 'dt_webform_field', function ( $key ){
             'Using media to accelerate disciple making' => 'Using media to accelerate disciple making',
         ];
 
-        go_display_tag_fields( 'tags', $values );
+        go_display_tag_fields( 'skills', $values );
     }
     if ( $key === 'partner-skills' ){
         $values = [
@@ -40,7 +40,7 @@ add_action( 'dt_webform_field', function ( $key ){
             'Being a disciple and making disciples' => 'Being a disciple and making disciples',
             'Using media to accelerate disciple making' => 'Using media to accelerate disciple making',
         ];
-        go_display_tag_fields( 'tags', $values );
+        go_display_tag_fields( 'skills', $values );
     }
     if ( $key === 'kk-partner-skills' ){
         $values = [
@@ -58,21 +58,28 @@ add_action( 'dt_webform_field', function ( $key ){
 });
 
 add_filter( 'dt_webform_fields_before_submit', function ( $fields ){
-    if ( isset( $fields['tags']['values'] ) ){
-        foreach ( $fields['tags']['values'] as $tag ){
+    $tags_to_add = [];
+    if ( isset( $fields['skills']['values'] ) ){
+        foreach ( $fields['skills']['values'] as $tag ){
             if ( isset( $tag['value'] ) && $tag['value'] === 'News and testimonies' ){
-                $fields['tags']['values'][] = [ 'value' => 'add_to_mailing_list_21' ]; //Go
+                $tags_to_add[] = [ 'value' => 'add_to_mailing_list_21' ]; //Go
             }
             if ( isset( $tag['value'] ) && $tag['value'] === 'Prayer opportunities and resources' ){
-                $fields['tags']['values'][] = [ 'value' => 'add_to_mailing_list_23' ]; //P4M
+                $tags_to_add[] = [ 'value' => 'add_to_mailing_list_23' ]; //P4M
             }
             if ( isset( $tag['value'] ) && $tag['value'] === 'Using media to accelerate disciple making' ){
-                $fields['tags']['values'][] = [ 'value' => 'add_to_mailing_list_24' ]; //KT
+                $tags_to_add[] = [ 'value' => 'add_to_mailing_list_24' ]; //KT
             }
             //if ( isset( $tag['value'] ) && $tag['value'] === 'Being a disciple and making disciples' ){
-            //    $fields['tags']['values'][] = [ 'value' => 'add_to_mailing_list_24' ];
+            //    $tags_to_add[] = [ 'value' => 'add_to_mailing_list_24' ];
             //}
         }
+    }
+    if ( !empty( $tags_to_add ) ){
+        if ( empty( $fields['tags'] ) ){
+            $fields['tags'] = [ 'values' => [] ];
+        }
+        $fields['tags']['values'] = array_merge( $fields['tags']['values'], $tags_to_add );
     }
 
     return $fields;
