@@ -11,7 +11,7 @@ add_action( 'dt_webform_field', function ( $key ){
 
     if ( $key === 'partner-news' ){
         $values = [
-            'News and testimonies' => 'News and testimonies',
+            'Gospel Ambition news and testimonies' => 'News and testimonies',
             'Prayer opportunities and resources' => 'Prayer opportunities and resources',
             'Being a disciple and making disciples' => 'Being a disciple and making disciples',
             'Using media to accelerate disciple making' => 'Using media to accelerate disciple making',
