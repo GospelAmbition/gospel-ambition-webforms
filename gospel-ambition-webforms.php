@@ -72,3 +72,11 @@ class GO_Webform_Context_Switcher {
 }
 
 add_action( 'after_setup_theme', [ 'GO_Webform_Context_Switcher', 'instance' ], 10 );
+
+register_activation_hook( __FILE__, function (){
+    // Confirm 'Administrator' has 'manage_dt' privilege. This is key in 'remote' configuration when Disciple.Tools theme is not installed.
+    $role = get_role( 'administrator' );
+    if ( !empty( $role ) ) {
+        $role->add_cap( 'manage_dt' ); // gives access to dt plugin options
+    }
+} );
