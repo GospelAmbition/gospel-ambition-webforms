@@ -1,6 +1,14 @@
 <?php
 
 add_action( 'dt_webform_field', function ( $key ){
+    if ( $key === 'go-news' ){
+        $values = [
+            'add_to_mailing_list_21' => 'Sign me up for News and testimonies from GospelAmbition.org',
+        ];
+
+        go_display_tag_fields( 'tags', $values );
+    }
+
     if ( $key === 'partner-news' ){
         $values = [
             'News and testimonies' => 'News and testimonies',
