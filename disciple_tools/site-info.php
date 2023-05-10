@@ -10,7 +10,8 @@ add_filter( 'go_site_info', function( $stats ) {
 
 add_filter( 'go_webform_options', function ( $params ) {
     $params['lists'] = $params['lists'] ?? [];
-    $params['lists'][] = 'list_18';
+    $params['lists'][] = 'list_18'; // D.T News
+    $params['lists'][] = 'list_22'; // Go Occasional
     $params['contact_fields'] = $params['contact_fields'] ?? [];
     $params['contact_fields']['projects'] = [ 'values' => [ [ 'value' => 'disciple_tools' ] ] ];
     if ( !empty( $params['source'] ) ){
