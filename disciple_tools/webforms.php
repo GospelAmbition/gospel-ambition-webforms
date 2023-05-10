@@ -15,4 +15,6 @@ add_filter( 'dt_webform_fields_before_submit', function ( $fields ){
     if ( isset( $fields['tags']['values'][0]['value'] ) && $fields['tags']['values'][0]['value'] === 'add_to_mailing_list_18' ){
         $fields['tags']['values'][] = [ 'value' => 'add_to_mailing_list_22' ];
     }
+
+    return $fields;
 } );
