@@ -56,3 +56,24 @@ add_action( 'dt_webform_field', function ( $key ){
         go_display_tag_fields( 'skills', $values );
     }
 });
+
+add_filter( 'dt_webform_fields_before_submit', function ( $fields ){
+    if ( isset( $fields['tags']['values'] ) ){
+        foreach ( $fields['tags']['values'] as $tag ){
+            if ( isset( $tag['value'] ) && $tag['value'] === 'News and testimonies' ){
+                $fields['tags']['values'][] = [ 'value' => 'add_to_mailing_list_21' ]; //Go
+            }
+            if ( isset( $tag['value'] ) && $tag['value'] === 'Prayer opportunities and resources' ){
+                $fields['tags']['values'][] = [ 'value' => 'add_to_mailing_list_23' ]; //P4M
+            }
+            if ( isset( $tag['value'] ) && $tag['value'] === 'Using media to accelerate disciple making' ){
+                $fields['tags']['values'][] = [ 'value' => 'add_to_mailing_list_24' ]; //KT
+            }
+            //if ( isset( $tag['value'] ) && $tag['value'] === 'Being a disciple and making disciples' ){
+            //    $fields['tags']['values'][] = [ 'value' => 'add_to_mailing_list_24' ];
+            //}
+        }
+    }
+
+    return $fields;
+} );
