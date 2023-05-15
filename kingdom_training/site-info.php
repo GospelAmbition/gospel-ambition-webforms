@@ -18,7 +18,7 @@ add_filter( 'go_webform_options', function ( $params ) {
     if ( !empty( $params['source'] ) ){
         $params['contact_fields']['sources'] = [ 'values' => [ [ 'value' => $params['source'] ] ] ];
     } else {
-        $params['contact_fields']['sources'] = [ 'values' => [ [ 'value' => 'kingdom.training' ] ] ];
+        $params['contact_fields']['sources'] = [ 'values' => [ [ 'value' => 'kingdom_training' ] ] ];
     }
 
     if ( in_array( 'list_24', $params['lists'] ) ) {

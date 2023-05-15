@@ -6,7 +6,7 @@ add_action( 'dt_webform_field', function ( $key ){
             'add_to_mailing_list_23' => 'Sign up for Pray4movement news and opportunities, and occasional communication from GospelAmbition.org',
         ];
 
-        go_display_tag_fields( 'tags', $values );
+        go_display_tag_fields( 'tags', $values, true );
     }
 
 });
