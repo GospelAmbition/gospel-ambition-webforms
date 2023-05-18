@@ -24,6 +24,7 @@ add_filter( 'go_webform_options', function ( $params ) {
         $note = 'Signed up for P4M News';
         if ( isset( $params['named_tags']['values'][0]['type'] ) && 'p4m_campaign_name' === $params['named_tags']['values'][0]['type'] ) {
             $note .= ' on ' . $params['named_tags']['values'][0]['value'];
+            $params['contact_fields']['campaigns'] = [ 'values' => [ [ 'value' => $params['named_tags']['values'][0]['value'] ] ] ];
         }
         $params['contact_fields']['notes'] = [ $note ];
     }
