@@ -69,7 +69,8 @@ function go_display_opt_in( $atts ){
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-WP-Nonce': '<?php echo esc_html( wp_create_nonce( 'wp_rest' ) ) ?>',
                 }
             }).then(function(response){
                 go_form.querySelector('#go-submit-spinner').style.display = 'none';
