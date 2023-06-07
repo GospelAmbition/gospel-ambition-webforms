@@ -30,11 +30,12 @@ class GO_Webforms_Endpoints
     }
     public function optin( WP_REST_Request $request ) {
         $params = $request->get_params();
-        $headers = $request->get_headers();
-        $nonce = $headers['x_wp_nonce'][0] ?? '';
-        if ( !wp_verify_nonce( $nonce, 'wp_rest' ) ){
-            return false;
-        }
+        //can't use nonce as used by campaigns
+//        $headers = $request->get_headers();
+//        $nonce = $headers['x_wp_nonce'][0] ?? '';
+//        if ( !wp_verify_nonce( $nonce, 'wp_rest' ) ){
+//            return false;
+//        }
 
         //set lists from this filter
         $params = apply_filters( 'go_webform_options', $params );
