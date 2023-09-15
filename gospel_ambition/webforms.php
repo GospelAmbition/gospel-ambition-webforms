@@ -17,7 +17,7 @@ add_action( 'dt_webform_field', function ( $key ){
             'Using media to accelerate disciple making' => 'Using media to accelerate disciple making',
         ];
 
-        go_display_tag_fields( 'skills', $values );
+        go_display_tag_fields( 'skills', $values, true );
     }
     if ( $key === 'partner-skills' ){
         $values = [
