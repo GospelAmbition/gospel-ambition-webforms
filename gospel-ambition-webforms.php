@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * Description: Gospel Ambition Webforms
  * Text Domain: gospel-ambition-webforms
- * Version:  2023.06.07
+ * Version:  2024.08.09
  * Author URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * GitHub Plugin URI: https://github.com/GospelAmbition/gospel-ambition-webforms
  * Requires at least: 4.7.0
@@ -49,6 +49,7 @@ class GO_Webform_Context_Switcher {
                 break;
 
             case 'Pray4Movement':
+            case 'Prayer.Tools':
                 require_once( 'pray4movement/loader.php' );
                 break;
 
