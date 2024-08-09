@@ -3,7 +3,7 @@
 add_action( 'dt_webform_field', function ( $key ){
     if ( $key === 'go-news' ){
         $values = [
-            'add_to_mailing_list_21' => 'Sign me up for News and testimonies from GospelAmbition.org',
+            'add_to_mailing_list_22' => 'Sign me up for news and testimonies from GospelAmbition.org',
         ];
 
         go_display_tag_fields( 'tags', $values, true );
@@ -17,7 +17,7 @@ add_action( 'dt_webform_field', function ( $key ){
             'Using media to accelerate disciple making' => 'Using media to accelerate disciple making',
         ];
 
-        go_display_tag_fields( 'skills', $values );
+        go_display_tag_fields( 'skills', $values, true );
     }
     if ( $key === 'partner-skills' ){
         $values = [
@@ -61,8 +61,8 @@ add_filter( 'dt_webform_fields_before_submit', function ( $fields ){
     $tags_to_add = [];
     if ( isset( $fields['skills']['values'] ) ){
         foreach ( $fields['skills']['values'] as $tag ){
-            if ( isset( $tag['value'] ) && $tag['value'] === 'News and testimonies' ){
-                $tags_to_add[] = [ 'value' => 'add_to_mailing_list_21' ]; //Go
+            if ( isset( $tag['value'] ) && $tag['value'] === 'Gospel Ambition news and testimonies' ){
+                $tags_to_add[] = [ 'value' => 'add_to_mailing_list_22' ]; //Go
             }
             if ( isset( $tag['value'] ) && $tag['value'] === 'Prayer opportunities and resources' ){
                 $tags_to_add[] = [ 'value' => 'add_to_mailing_list_23' ]; //P4M
