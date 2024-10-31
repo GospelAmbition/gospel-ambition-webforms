@@ -37,6 +37,14 @@ class GO_Webforms_Endpoints
 //            return false;
 //        }
 
+        if ( home_url() === 'https://disciple.tools' ){
+            $headers = $request->get_headers();
+            $nonce = $headers['x_wp_nonce'][0] ?? '';
+            if ( !wp_verify_nonce( $nonce, 'wp_rest' ) ){
+                return false;
+            }
+        }
+
         //set lists from this filter
         $params = apply_filters( 'go_webform_options', $params );
 
