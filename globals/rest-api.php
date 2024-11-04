@@ -128,7 +128,7 @@ class GO_Webforms_Endpoints
         $message = 'Hi ' . ( $params['first_name'] ?? '' ) . ',<br><br>';
         $message .= 'Please confirm your subscription to D.T News by clicking the link below:<br><br>';
         $message .= '<a href="' . home_url() . '/wp-json/go-webform/confirm?key=' . $key . '">Confirm Subscription</a>';
-        $message .= '<br><br>Thank you for subscribing to D.T News';
+        $message .= '<br><br>Thank you for subscribing to D.T News.';
         $message .= '<br><br>If you did not request this subscription, please ignore this email.';
         $headers = array('Content-Type: text/html; charset=UTF-8');
         wp_mail( $params['email'], $subject, $message, $headers );
