@@ -65,7 +65,7 @@ function go_display_opt_in( $atts ){
               source: '<?php echo esc_html( $source ) ?>'
             }
 
-            fetch('/wp-json/go-webform/optin', {
+            fetch('/wp-json/go-webform/double-optin', {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
@@ -80,7 +80,7 @@ function go_display_opt_in( $atts ){
                     error_span.style.display = 'block';
                 } else {
                     error_span.style.display = 'none';
-                    go_form.querySelector('.dt-form-success').innerHTML = 'You have been subscribed!';
+                    go_form.querySelector('.dt-form-success').innerHTML = 'Please check your email to confirm your subscription.';
                     go_form.querySelector('input[name="email2"]').value = '';
                 }
             }).catch(function(error){
