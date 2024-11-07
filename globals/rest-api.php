@@ -113,6 +113,34 @@ class GO_Webforms_Endpoints
             return false;
         }
 
+        //verify cloudflare token
+        $cf_token = $params['cf_turnstile'] ?? '';
+        if ( empty( $cf_token ) ){
+            return new WP_Error( 'cf_token', 'Invalid token', [ 'status' => 400 ] );
+        }
+        //secret key
+        $secret_key = get_option( 'cf_secret_key', '' );
+        if ( empty( $secret_key ) ){
+            return new WP_Error( 'cf_token', 'Invalid token', [ 'status' => 400 ] );
+        }
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+        $response = wp_remote_post( $url, [
+            'body' => [
+                'secret' => $secret_key,
+                'response' => $cf_token,
+                'remoteip' => $ip,
+            ],
+        ] );
+
+        if ( is_wp_error( $response ) ) {
+            return new WP_Error( 'cf_token', 'Invalid token', [ 'status' => 400 ] );
+        }
+        $response_body = json_decode( wp_remote_retrieve_body( $response ), true );
+        if ( empty( $response_body['success'] ) ){
+            return new WP_Error( 'cf_token', 'Invalid token', [ 'status' => 400 ] );
+        }
+
         //set lists from this filter
         $params = apply_filters( 'go_webform_options', $params );
         $params['time'] = time();
