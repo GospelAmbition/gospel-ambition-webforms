@@ -119,7 +119,7 @@ class GO_Webforms_Endpoints
             return new WP_Error( 'cf_token', 'Invalid token', [ 'status' => 400 ] );
         }
         //secret key
-        $secret_key = get_option( 'cf_secret_key', '' );
+        $secret_key = get_option( 'dt_webform_cf_site_key', '' );
         if ( empty( $secret_key ) ){
             return new WP_Error( 'cf_token', 'Invalid token', [ 'status' => 400 ] );
         }
