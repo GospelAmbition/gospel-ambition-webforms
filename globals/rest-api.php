@@ -145,7 +145,7 @@ class GO_Webforms_Endpoints
         $params = apply_filters( 'go_webform_options', $params );
         $params['time'] = time();
 
-        send_dt_optin_email( $params );
+        do_action( 'send_double_optin_email', $params );
 
         return new WP_REST_Response( 'success', 200 );
     }

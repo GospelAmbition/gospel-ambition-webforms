@@ -6,6 +6,7 @@ function go_display_opt_in( $atts ){
 
     $source = $atts['source'] ?? null;
     $name = $atts['name'] ?? null;
+    $cf_token = get_option( 'dt_webform_cf_site_key', '' );
 
     ob_start();
     ?>
@@ -41,11 +42,11 @@ function go_display_opt_in( $atts ){
                 </div>
             </div>
             <label>
-                <input id="confirm-subscribe" type="checkbox" style="margin: 0">
+                <input id="confirm-subscribe" type="checkbox" style="margin: 0; width: auto">
                 Sign up for <?php echo esc_html( $name ); ?> news and opportunities, and occasional communication from <a href='https://GospelAmbition.org' target="_blank">GospelAmbition.org</a>
             </label>
 
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAzW_opKy6Nqokfo" data-theme="light" data-callback="save_cf"></div>
+            <div class="cf-turnstile" data-sitekey="<?php echo esc_html( $cf_token ); ?>" data-theme="light" data-callback="save_cf"></div>
             <button id='go-submit-form-button' type="submit" class="button">
                 Subscribe
                 <img id="go-submit-spinner" style="display: none; height: 25px" src="<?php echo esc_html( GO_Webform_Context_Switcher::plugin_url( '/assets/spinner-white.svg' ) ) ?>"/>

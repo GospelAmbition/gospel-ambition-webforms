@@ -6,5 +6,5 @@ Webforms.
 
 Display list sign up form:
 ```
-[go_display_opt_in]
+[go_display_opt_in name="Disciple.Tools" sourc="dt_news]
 ```

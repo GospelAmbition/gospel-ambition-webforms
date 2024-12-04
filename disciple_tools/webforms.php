@@ -35,12 +35,15 @@ function send_dt_optin_email( $params ){
 
 
     //send email with confirm link
-    $subject = 'Confirm subscription to D.T News';
+    $subject = 'Confirm subscription to Disciple.Tools News';
     $message = 'Hi ' . ( $params['first_name'] ?? '' ) . ',<br><br>';
-    $message .= 'Please confirm your subscription to D.T News by clicking the link below:<br><br>';
+    $message .= 'Please confirm your subscription to Disciple.Tools News by clicking the link below:<br><br>';
     $message .= '<a href="' . home_url() . '/wp-json/go-webform/confirm?key=' . $key . '">Confirm Subscription</a>';
-    $message .= '<br><br>Thank you for subscribing to D.T News.';
+    $message .= '<br><br>Thank you for subscribing to Disciple.Tools News.';
     $message .= '<br><br>If you did not request this subscription, please ignore this email.';
     $headers = array('Content-Type: text/html; charset=UTF-8');
     wp_mail( $params['email'], $subject, $message, $headers );
 }
+add_action( 'send_double_optin_email', function ( $params ){
+    send_dt_optin_email( $params );
+}, 10, 1 );
