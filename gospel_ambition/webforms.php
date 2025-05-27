@@ -85,6 +85,24 @@ add_filter( 'dt_webform_fields_before_submit', function ( $fields ){
     return $fields;
 } );
 
+add_filter( 'go_webform_options', function ( $params ) {
+    $params['lists'][] = 'list_22'; // Go Occasional
+    $params['contact_fields'] = $params['contact_fields'] ?? [];
+    $params['contact_fields']['projects'] = [ 'values' => [ [ 'value' => 'gospel_ambition' ] ] ];
+    if ( !empty( $params['source'] ) ){
+        $params['contact_fields']['sources'] = [ 'values' => [ [ 'value' => $params['source'] ] ] ];
+    } else {
+        $params['contact_fields']['sources'] = [ 'values' => [ [ 'value' => 'go_blog' ] ] ];
+    }
+
+    if ( in_array( 'list_22', $params['lists'] ) ) {
+        $params['contact_fields']['steps_taken'] = [ 'values' => [ [ 'value' => 'Go Newsletter' ] ] ];
+        $params['contact_fields']['notes'] = [ 'Signed up for Go News' ];
+    }
+
+    return $params;
+}, 10, 1 );
+
 function send_dt_optin_email( $params ){
     //generate key
     $key = wp_generate_password( 50, false );
