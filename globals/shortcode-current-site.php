@@ -7,6 +7,7 @@ function go_display_opt_in( $atts ){
     $source = $atts['source'] ?? null;
     $name = $atts['name'] ?? null;
     $cf_token = get_option( 'dt_webform_cf_site_key', '' );
+    $custom_news_signup_message = $atts['news_prompt'] ?? null;
 
     ob_start();
     ?>
@@ -43,7 +44,11 @@ function go_display_opt_in( $atts ){
             </div>
             <label>
                 <input id="confirm-subscribe" type="checkbox" style="margin: 0; width: auto">
-                Sign up for <?php echo esc_html( $name ); ?> news and opportunities, and occasional communication from <a href='https://GospelAmbition.org' target="_blank">GospelAmbition.org</a>
+                <?php if ( $custom_news_signup_message ) :
+                    echo esc_html( $custom_news_signup_message );
+                else : ?>
+                    Sign up for <?php echo esc_html( $name ); ?> news and opportunities, and occasional communication from <a href='https://GospelAmbition.org' target="_blank">GospelAmbition.org</a>
+                <?php endif ?>
             </label>
 
             <div class="cf-turnstile" data-sitekey="<?php echo esc_html( $cf_token ); ?>" data-theme="light" data-callback="save_cf"></div>
