@@ -23,6 +23,26 @@ function go_display_opt_in( $atts ){
             font-size: 0.8rem;
             font-weight: bold;
         }
+        .go-opt-in__form label {
+            font-size: 0.875rem;
+        }
+        .go-opt-in__form strong {
+            font-weight:bold;
+        }
+        .go-opt-in__form .input-group {
+            margin-bottom: 1rem;
+            width: 100%;
+            display: flex;
+        }
+        .go-opt-in__form input {
+            border-radius: 3px 0 0 3px;
+            padding: 8px;
+            border: 1px solid #cacaca;
+            width: 100%;
+        }
+        .go-opt-in__form button {
+            padding: .85em 1em;
+        }
     </style>
     <div class="go-opt-in__form">
         <form id="go-optin-form" action="/wp-json/go-webform/double-optin" method="post">
@@ -43,7 +63,7 @@ function go_display_opt_in( $atts ){
                 </div>
             </div>
             <label>
-                <input id="confirm-subscribe" type="checkbox" style="margin: 0; width: auto">
+                <input id="confirm-subscribe" type="checkbox" style="margin: 0 0 10px 0; width: auto">
                 <?php if ( $custom_news_signup_message ) :
                     echo esc_html( $custom_news_signup_message );
                 else : ?>
